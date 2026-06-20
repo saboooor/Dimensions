@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.xxastaspastaxx"
-version = "4.0.0"
+version = "3.3.0"
 
 java {
     toolchain {

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 import me.xxastaspastaxx.dimensions.Dimensions;
+import me.xxastaspastaxx.dimensions.DimensionsDebbuger;
 import me.xxastaspastaxx.dimensions.customportal.CustomPortalDestroyCause;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.minimessage.MiniMessage;
@@ -20,8 +21,8 @@ import org.bukkit.configuration.file.FileConfiguration;
  */
 public class DimensionsSettings {
 
-  /** Config version for verion control */
-  private static final double configVersion = 1.3;
+  /** Config version for version control */
+  private static final double configVersion = 3.3;
 
   /** Enable patreon cosmetics for your server */
   public static boolean enablePatreonCosmetics = true;
@@ -142,6 +143,13 @@ public class DimensionsSettings {
   }
 
   public static WorldConfiguration getWorldConfiguration(World world) {
+    if (world == null) {
+      DimensionsDebbuger.MEDIUM.print(
+          "A world defined in the config doesnt exist or isnt loaded! Please double check your"
+              + " config for any typos in the world names.");
+      return null;
+    }
+
     if (!worldConfigurations.containsKey(world.getName())) {
       return new WorldConfiguration(
           world.getMinHeight(), world.getMaxHeight(), world.getWorldBorder().getSize());
@@ -162,6 +170,11 @@ public class DimensionsSettings {
     if (config.getConfigurationSection("Worlds") != null) {
       for (String string : config.getConfigurationSection("Worlds").getKeys(false)) {
         World world = Bukkit.getWorld(string);
+        if (world == null) {
+          DimensionsDebbuger.MEDIUM.print(
+              "The world " + string + " defined in the config doesnt exist or isnt loaded!");
+          continue;
+        }
         worldConfigurations.put(
             string,
             new WorldConfiguration(
