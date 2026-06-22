@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import me.xxastaspastaxx.dimensions.utils;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -46,7 +47,8 @@ public class PortalEntityText extends PortalEntity {
             portalEntityId,
             Optional.of(UUID.randomUUID()),
             EntityTypes.TEXT_DISPLAY,
-            new Vector3d(location.getBlockX(), location.getBlockY(), location.getBlockZ()),
+            new Vector3d(
+                location.getBlockX() + 0.37, location.getBlockY() - 0.25, location.getBlockZ()),
             0f, // pitch
             0f, // yaw
             0f, // headYaw
@@ -63,7 +65,7 @@ public class PortalEntityText extends PortalEntity {
     // index 16 is the index of the "Brightness" entity data of the display entity, set it to
     // 15728880 to make it fullbright on both sky and block light
     // blockLight << 4 | skyLight << 20
-    metadataList.add(new EntityData<>(16, EntityDataTypes.INT, 15728880));
+    metadataList.add(new EntityData<>(16, EntityDataTypes.INT, utils.packBrightness(15, 15)));
     // index 12 is the index of the "Scale" entity data of the display entity, set it to
     metadataList.add(
         new EntityData<>(12, EntityDataTypes.VECTOR3F, new Vector3f(5.0f, 5.0f, 5.0f)));
