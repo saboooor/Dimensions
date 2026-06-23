@@ -25,10 +25,6 @@ public class DimensionsSettings {
   @Comment("Config version for version control")
   private static final double configVersion = 3.3;
 
-  /** Enable patreon cosmetics for your server */
-  @Comment("Enable patreon cosmetics for your server")
-  public static boolean enablePatreonCosmetics = true;
-
   /** Enable to show players the available portals */
   @Comment("Enable to show players the available portals")
   public static boolean showPortalsToPlayers = true;

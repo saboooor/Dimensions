@@ -45,13 +45,13 @@ public class DimensionsPatreonCosmetics extends DimensionsAddon implements Liste
   private HashMap<String, CosmeticEffect> localCosmeticsMap;
 
   public DimensionsPatreonCosmetics() {
-    super("PatreonCosmetics", "1.0.0", "Cosmetics for Patreons", DimensionsAddonPriority.NORMAL);
+    super("PatreonCosmetics", "1.0.0", "Cosmetics for Patrons", DimensionsAddonPriority.NORMAL);
   }
 
   @Override
   public boolean onLoad(Dimensions pl) {
     this.pl = pl;
-    return DimensionsSettings.enablePatreonCosmetics;
+    return true;
   }
 
   @Override
