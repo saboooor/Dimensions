@@ -20,7 +20,8 @@ public class CustomPortalManager {
 
     ArrayList<CustomPortal> loaded = (new CustomPortalLoader()).loadAll();
     if (Dimensions.isDemoMode() && loaded.size() > 2) {
-      me.xxastaspastaxx.dimensions.DimensionsDebbuger.VERY_LOW.print("Demo mode: Limiting custom portal configs to 2.");
+      me.xxastaspastaxx.dimensions.DimensionsDebbuger.VERY_LOW.print(
+          "Demo mode: Limiting custom portal configs to 2.");
       customPortals.addAll(loaded.subList(0, 2));
     } else {
       customPortals.addAll(loaded);
@@ -62,7 +63,8 @@ public class CustomPortalManager {
     customPortals.clear();
     ArrayList<CustomPortal> loaded = (new CustomPortalLoader()).loadAll();
     if (Dimensions.isDemoMode() && loaded.size() > 2) {
-      me.xxastaspastaxx.dimensions.DimensionsDebbuger.VERY_LOW.print("Demo mode: Limiting custom portal configs to 2.");
+      me.xxastaspastaxx.dimensions.DimensionsDebbuger.VERY_LOW.print(
+          "Demo mode: Limiting custom portal configs to 2.");
       customPortals.addAll(loaded.subList(0, 2));
     } else {
       customPortals.addAll(loaded);

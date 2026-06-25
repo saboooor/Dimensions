@@ -173,7 +173,10 @@ public class CustomPortalLoader {
               ? null
               : MiniMessage.miniMessage()
                   .deserialize(portalConfig.getString("Portal.InsideSprite"));
-      float opacity = (float) portalConfig.getDouble("Portal.InsideSpriteOpacity", portalConfig.getDouble("Portal.Opacity", 1.0));
+      float opacity =
+          (float)
+              portalConfig.getDouble(
+                  "Portal.InsideSpriteOpacity", portalConfig.getDouble("Portal.Opacity", 1.0));
 
       //			BlockData[] insideBlockData = new BlockData[] {getInsideBlockData(false,
       // tempBlockData),getInsideBlockData(true, tempBlockData)};
