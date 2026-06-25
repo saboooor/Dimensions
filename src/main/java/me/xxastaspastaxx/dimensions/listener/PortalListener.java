@@ -511,6 +511,14 @@ public class PortalListener implements Listener {
     }
     boolean cancel = false;
     for (CompletePortal portal : portals) {
+      if (portal.isInsidePortal(block.getLocation(), false, false)) {
+        if (cause == CustomPortalDestroyCause.BLOCK_PHYSICS) {
+          continue;
+        }
+      } else if (portal.getCustomPortal().isPortalBlock(block)) {
+        continue;
+      }
+
       if (DimensionsSettings.enableDebugLogging) {
         Bukkit.getLogger()
             .info(

@@ -299,4 +299,19 @@ public class DimensionsUtils {
       }
     }
   }
+
+  /**
+   * Packs the block light and sky light values into a single integer.
+   *
+   * @param blockLight the block light value (0-15)
+   * @param skyLight the sky light value (0-15)
+   * @return the packed brightness value
+   */
+  public static int packBrightness(int lightLevel) {
+    if (lightLevel < 0 || lightLevel > 15) {
+      throw new IllegalArgumentException("lightLevel must be between 0 and 15");
+    }
+
+    return (lightLevel << 4) | (lightLevel << 20);
+  }
 }
