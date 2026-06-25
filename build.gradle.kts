@@ -99,6 +99,16 @@ tasks.jar {
     archiveFileName.set("dimensions-${project.version}.jar")
 }
 
+tasks.processResources {
+    val demoMode = project.hasProperty("demo") && project.property("demo").toString() != "false"
+    inputs.property("demoMode", demoMode)
+    doLast {
+        val propFile = File(destinationDir, "demo.properties")
+        propFile.parentFile.mkdirs()
+        propFile.writeText("demo=$demoMode\n")
+    }
+}
+
 val collectAddons = tasks.register<Copy>("collectAddons") {
     group = "build"
     description = "Collects all addon jar files into a single directory"

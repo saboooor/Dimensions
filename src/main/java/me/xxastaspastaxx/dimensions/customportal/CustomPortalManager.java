@@ -18,7 +18,13 @@ public class CustomPortalManager {
   public CustomPortalManager(Dimensions pl) {
     this.pl = pl;
 
-    customPortals.addAll((new CustomPortalLoader()).loadAll());
+    ArrayList<CustomPortal> loaded = (new CustomPortalLoader()).loadAll();
+    if (Dimensions.isDemoMode() && loaded.size() > 2) {
+      me.xxastaspastaxx.dimensions.DimensionsDebbuger.VERY_LOW.print("Demo mode: Limiting custom portal configs to 2.");
+      customPortals.addAll(loaded.subList(0, 2));
+    } else {
+      customPortals.addAll(loaded);
+    }
 
     // customPortals.add(new CustomPortal("test", "", true,
     // Material.DIAMOND_BLOCK.createBlockData(),
@@ -54,6 +60,12 @@ public class CustomPortalManager {
   /** Reload all custom portals */
   public void reload() {
     customPortals.clear();
-    customPortals.addAll((new CustomPortalLoader()).loadAll());
+    ArrayList<CustomPortal> loaded = (new CustomPortalLoader()).loadAll();
+    if (Dimensions.isDemoMode() && loaded.size() > 2) {
+      me.xxastaspastaxx.dimensions.DimensionsDebbuger.VERY_LOW.print("Demo mode: Limiting custom portal configs to 2.");
+      customPortals.addAll(loaded.subList(0, 2));
+    } else {
+      customPortals.addAll(loaded);
+    }
   }
 }

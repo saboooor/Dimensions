@@ -35,6 +35,8 @@ public class DimensionsAddonManager {
   public DimensionsAddonManager(Dimensions pl) {
     this.pl = pl;
 
+    boolean demoMode = Dimensions.isDemoMode();
+
     File dir = new File(ADDONS_PATH);
     if (!dir.exists()) dir.mkdirs();
 
@@ -56,6 +58,16 @@ public class DimensionsAddonManager {
     while (iter.hasNext()) {
       try {
         DimensionsAddon addon = iter.next();
+        if (demoMode) {
+          String name = addon.getName();
+          if (!name.equals("DimensionsWorldGuardFlagsAddon")
+              && !name.equals("PatreonCosmetics")
+              && !name.equals("DimensionsHorizontalPortalsAddon")
+              && !name.equals("DimensionsForceLink")) {
+            DimensionsDebbuger.MEDIUM.print("Demo mode: Skipped loading addon: " + name);
+            continue;
+          }
+        }
         if (addon.onLoad(pl)) {
           DimensionsDebbuger.MEDIUM.print(
               "Loaded addon: " + addon.getName() + " v" + addon.getVersion());
