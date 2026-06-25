@@ -1,0 +1,16 @@
+start:
+  - 'frequency = 20'
+portal:
+  play:
+    - 'radius = portalWidth/1.5'
+    - 'max = 0.08 * portalHeight'
+    - 'amount = 10 * portalWidth'
+    - 'increment = (2 * 3.14) / amount'
+  for:
+    i=0;i<2;i=i+1:
+      j=0;j<amount;j=j+1:
+        run0:
+          - 'angle = j * increment'
+          - 'x = locX + (radius * cos(angle))'
+          - 'z = locZ + (radius * sin(angle))'
+          - 'play REDSTONE x locY-(portalHeight/2)+(i*max*6)+(angle*max) z 3 0 0 0 DustOptions(Color(0,255,0),2)'

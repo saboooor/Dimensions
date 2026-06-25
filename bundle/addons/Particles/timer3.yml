@@ -1,0 +1,3 @@
+portal:
+  play:
+    - 'play SMOKE_LARGE locX locY locZ 20 0 1 0'

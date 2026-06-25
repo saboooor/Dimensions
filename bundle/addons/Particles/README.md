@@ -1,0 +1,2 @@
+The files in the folder are examples of particle packs and the particle addon jar.
+You can view the wiki for more information here https://astaspastagam.gitbook.io/first-steps/configuring-dimensions/addons/particles-addon

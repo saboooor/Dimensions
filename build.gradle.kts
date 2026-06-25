@@ -111,7 +111,7 @@ tasks.processResources {
 
 val collectAddons = tasks.register<Copy>("collectAddons") {
     group = "build"
-    description = "Collects all addon jar files into a single directory"
+    description = "Collects all addon jar files into the bundle/addons directory"
     
     subprojects.forEach { subproject ->
         dependsOn(subproject.tasks.matching { it.name == "jar" })
@@ -121,7 +121,7 @@ val collectAddons = tasks.register<Copy>("collectAddons") {
         subproject.layout.buildDirectory.dir("libs")
     })
     
-    into(layout.buildDirectory.dir("addons"))
+    into(layout.settingsDirectory.dir("bundle/addons"))
     include("*.jar")
 }
 

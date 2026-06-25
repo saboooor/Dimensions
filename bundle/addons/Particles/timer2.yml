@@ -1,0 +1,4 @@
+portal:
+  play:
+    - 'play CRIT locX locY locZ 500 0.5 0.5 0.5'
+    - 'play FALLING_DRIPSTONE_WATER locX locY locZ 250 0.5 0 0.5'
