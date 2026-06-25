@@ -70,3 +70,6 @@ include("velocity-plugin")
 project(":velocity-plugin").projectDir = file("addons/velocity-plugin")
 include("weather")
 project(":weather").projectDir = file("addons/weather")
+include("portal-sounds")
+project(":portal-sounds").projectDir = file("addons/portal-sounds")
+

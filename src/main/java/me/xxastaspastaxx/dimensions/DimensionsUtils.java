@@ -314,4 +314,43 @@ public class DimensionsUtils {
 
     return (lightLevel << 4) | (lightLevel << 20);
   }
+
+  /**
+   * Play a portal sound at the given location, supporting custom sound options (which can be a Bukkit Sound enum or a String).
+   * 
+   * @param location the location to play the sound at
+   * @param soundOption the custom sound option (e.g. from an addon)
+   * @param fallbackSound the default sound to play if no option is configured
+   * @param volume the volume of the sound
+   * @param pitch the pitch of the sound
+   */
+  public static void playPortalSound(Location location, Object soundOption, Sound fallbackSound, float volume, float pitch) {
+    if (location == null) return;
+    org.bukkit.World world = location.getWorld();
+    if (world == null) return;
+
+    Object soundToPlay = soundOption != null ? soundOption : fallbackSound;
+    if (soundToPlay == null) return;
+
+    if (soundToPlay instanceof String) {
+      String soundStr = (String) soundToPlay;
+      if (soundStr.equalsIgnoreCase("none")) return;
+      if (!soundStr.trim().isEmpty()) {
+        Sound soundEnum = null;
+        try {
+          soundEnum = Sound.valueOf(soundStr.toUpperCase());
+        } catch (IllegalArgumentException e) {
+          // Not a valid enum name
+        }
+        if (soundEnum != null) {
+          world.playSound(location, soundEnum, volume, pitch);
+        } else {
+          world.playSound(location, soundStr, volume, pitch);
+        }
+      }
+    } else if (soundToPlay instanceof Sound) {
+      world.playSound(location, (Sound) soundToPlay, volume, pitch);
+    }
+  }
 }
+

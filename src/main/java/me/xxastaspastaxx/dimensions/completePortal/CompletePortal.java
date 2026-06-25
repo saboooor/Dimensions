@@ -35,6 +35,7 @@ public class CompletePortal {
   private ScheduledTask particlesTask;
   private ScheduledTask entitiesTask;
   private ScheduledTask updateTask;
+  private ScheduledTask ambientSoundTask;
 
   // We store the last linked world in case the plugin needs to return the player to the world he
   // came from but for some reason the portal is broken
@@ -371,6 +372,26 @@ public class CompletePortal {
                       DimensionsSettings.updateEveryTick);
             }
 
+            DimensionsScheduler.cancel(ambientSoundTask);
+            Object ambientSoundOpt = me.xxastaspastaxx.dimensions.addons.DimensionsAddon.getOption(customPortal, "ambientSound");
+            boolean playAmbient = true;
+            if (ambientSoundOpt instanceof String && ((String) ambientSoundOpt).equalsIgnoreCase("none")) {
+              playAmbient = false;
+            }
+            if (playAmbient) {
+              Location center = getCenter();
+              ambientSoundTask =
+                  DimensionsScheduler.runAtFixedRate(
+                      Dimensions.getInstance(),
+                      center,
+                      () -> {
+                        if (!isActive()) return;
+                        DimensionsUtils.playPortalSound(center, ambientSoundOpt, org.bukkit.Sound.BLOCK_PORTAL_AMBIENT, 1.0f, 1.0f);
+                      },
+                      80,
+                      80);
+            }
+
             if (getTag("hidePortalInside") != null) return;
 
             DimensionsScheduler.cancel(particlesTask);
@@ -442,9 +463,11 @@ public class CompletePortal {
             DimensionsScheduler.cancel(particlesTask);
             DimensionsScheduler.cancel(entitiesTask);
             DimensionsScheduler.cancel(updateTask);
+            DimensionsScheduler.cancel(ambientSoundTask);
             particlesTask = null;
             entitiesTask = null;
             updateTask = null;
+            ambientSoundTask = null;
 
             brokenPortal = true;
 
@@ -456,7 +479,8 @@ public class CompletePortal {
             savedEntities.clear();
           }
 
-          world.playSound(getCenter(), customPortal.getBreakSound(), 1, 8);
+          Object soundOpt = me.xxastaspastaxx.dimensions.addons.DimensionsAddon.getOption(customPortal, "breakSound");
+          DimensionsUtils.playPortalSound(getCenter(), soundOpt, customPortal.getBreakSound(), 1.0f, 8.0f);
 
           Particle blockCrackParticle =
               DimensionsUtils.getParticle("BLOCK", "BLOCK_CRUMBLE", "BLOCK_CRACK");
