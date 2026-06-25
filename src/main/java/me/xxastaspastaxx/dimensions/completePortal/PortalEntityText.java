@@ -64,8 +64,7 @@ public class PortalEntityText extends PortalEntity {
     metadataList.add(new EntityData<>(25, EntityDataTypes.INT, 0));
     // index 16 is the index of "Brightness", set it to 15 to make the block display fully bright
     // todo: custom lightlevel
-    metadataList.add(
-        new EntityData<>(16, EntityDataTypes.INT, DimensionsUtils.packBrightness(10)));
+    metadataList.add(new EntityData<>(16, EntityDataTypes.INT, DimensionsUtils.packBrightness(10)));
     // index 12 is the index of "Scale", set it to 5 to make it the size of a block
     metadataList.add(
         new EntityData<>(12, EntityDataTypes.VECTOR3F, new Vector3f(5.0f, 5.0f, 5.0f)));

@@ -48,7 +48,7 @@ public class DimensionsCustomLighter extends DimensionsAddon implements Listener
   public DimensionsCustomLighter() {
     super(
         "DimensionsCustomLighterAddon",
-        "3.0.4",
+        "4.0.0",
         "Custom lighters and blocks",
         DimensionsAddonPriority.NORMAL);
     DimensionsCustomLighter.instance = this;

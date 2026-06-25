@@ -10,7 +10,7 @@ import org.bukkit.configuration.file.YamlConfiguration;
 public abstract class DimensionsAddon {
 
   private String addonName;
-  private String addonVersion;
+  private String pluginVersion;
   private String addonDescription;
   private DimensionsAddonPriority addonPriority = DimensionsAddonPriority.NORMAL;
 
@@ -23,17 +23,17 @@ public abstract class DimensionsAddon {
    * Constructor of DimensionsAddon
    *
    * @param addonName The name of the addon
-   * @param addonVersion The version of the addon
+   * @param pluginVersion The minimum version of the plugin the addon is made for
    * @param addonDescription A short description of the addon
    * @param addonPriority Priority to enable the addon
    */
   public DimensionsAddon(
       String addonName,
-      String addonVersion,
+      String pluginVersion,
       String addonDescription,
       DimensionsAddonPriority addonPriority) {
     this.addonName = addonName;
-    this.addonVersion = addonVersion;
+    this.pluginVersion = pluginVersion;
     this.addonDescription = addonDescription;
     this.addonPriority = addonPriority;
   }
@@ -53,7 +53,7 @@ public abstract class DimensionsAddon {
    * @return the version of the addon
    */
   public String getVersion() {
-    return addonVersion;
+    return pluginVersion;
   }
 
   /**

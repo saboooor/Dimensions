@@ -23,7 +23,7 @@ public class DimensionsRandomLocation extends DimensionsAddon implements Listene
   public DimensionsRandomLocation() {
     super(
         "DimensionsRandomLocationAddon",
-        "3.0.7",
+        "4.0.0",
         "Teleport players to a random location",
         DimensionsAddonPriority.NORMAL);
   }

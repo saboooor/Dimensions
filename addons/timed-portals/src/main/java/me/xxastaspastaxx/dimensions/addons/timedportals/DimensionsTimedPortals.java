@@ -35,7 +35,7 @@ public class DimensionsTimedPortals extends DimensionsAddon implements Listener 
   public DimensionsTimedPortals() {
     super(
         "DimensionsTimedPortalsAddon",
-        "3.0.2",
+        "4.0.0",
         "Portals unlit after some time",
         DimensionsAddonPriority.NORMAL);
   }

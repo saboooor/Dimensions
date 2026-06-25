@@ -37,7 +37,7 @@ public class DimensionsPortablePortals extends DimensionsAddon implements Listen
   public DimensionsPortablePortals() {
     super(
         "DimensionsPortablePortalsAddon",
-        "3.0.1",
+        "4.0.0",
         "Take portals in your hands",
         DimensionsAddonPriority.NORMAL);
   }

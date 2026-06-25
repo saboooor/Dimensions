@@ -31,7 +31,7 @@ public class DimensionsCommandsOnUse extends DimensionsAddon implements Listener
   public DimensionsCommandsOnUse() {
     super(
         "DimensionsCommandsOnUseAddon",
-        "3.0.4",
+        "4.0.0",
         "Execute commands when using a portal",
         DimensionsAddonPriority.NORMAL);
   }

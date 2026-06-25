@@ -23,7 +23,7 @@ public class DimensionsDaylight extends DimensionsAddon implements Listener {
   public DimensionsDaylight() {
     super(
         "DimensionsDayLightAddon",
-        "3.0.2",
+        "4.0.0",
         "Allow portals to be ignite only for a specific period of time",
         DimensionsAddonPriority.NORMAL);
   }

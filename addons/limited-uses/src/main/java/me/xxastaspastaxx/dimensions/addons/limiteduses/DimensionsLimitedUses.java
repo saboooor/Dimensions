@@ -26,7 +26,7 @@ public class DimensionsLimitedUses extends DimensionsAddon implements Listener {
   public DimensionsLimitedUses() {
     super(
         "DimensionsLimitedUsesAddon",
-        "3.0.1",
+        "4.0.0",
         "Portals can now only be used specific amount of times",
         DimensionsAddonPriority.NORMAL);
   }

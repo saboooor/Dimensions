@@ -20,7 +20,7 @@ public class DimensionsIgniteByEvent extends DimensionsAddon {
   public DimensionsIgniteByEvent() {
     super(
         "DimensionsIgniteByEventAddon",
-        "3.0.2-BETA",
+        "4.0.0-BETA",
         "Ignite portals without lighter items",
         DimensionsAddonPriority.NORMAL);
   }

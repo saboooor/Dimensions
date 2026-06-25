@@ -23,7 +23,7 @@ public class DimensionsWeather extends DimensionsAddon implements Listener {
   public DimensionsWeather() {
     super(
         "DimensionsWeatherAddon",
-        "3.0.2",
+        "4.0.0",
         "Weather controls portals",
         DimensionsAddonPriority.NORMAL);
   }

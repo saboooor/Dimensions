@@ -43,7 +43,7 @@ public class DimensionsBungee extends DimensionsAddon implements PluginMessageLi
   private HashMap<UUID, CompletePortal> queue = new HashMap<UUID, CompletePortal>();
 
   public DimensionsBungee() {
-    super("DimensionsBungeeAddon", "3.0.4", "Bungee portals", DimensionsAddonPriority.NORMAL);
+    super("DimensionsBungeeAddon", "4.0.0", "Bungee portals", DimensionsAddonPriority.NORMAL);
   }
 
   @Override

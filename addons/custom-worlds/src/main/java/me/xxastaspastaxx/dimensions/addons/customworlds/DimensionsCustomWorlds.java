@@ -21,7 +21,7 @@ public class DimensionsCustomWorlds extends DimensionsAddon implements Listener 
   public DimensionsCustomWorlds() {
     super(
         "DimensionsCustomWorldsAddon",
-        "3.0.0",
+        "4.0.0",
         "Custom world generator",
         DimensionsAddonPriority.HIGHEST);
   }

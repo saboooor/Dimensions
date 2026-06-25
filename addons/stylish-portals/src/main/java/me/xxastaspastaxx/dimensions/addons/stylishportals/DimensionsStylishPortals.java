@@ -20,7 +20,7 @@ public class DimensionsStylishPortals extends DimensionsAddon implements Listene
   public DimensionsStylishPortals() {
     super(
         "DimensionsStylishPortalsAddon",
-        "3.0.5",
+        "4.0.0",
         "Give style to your portals",
         DimensionsAddonPriority.NORMAL);
   }

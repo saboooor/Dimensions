@@ -24,7 +24,7 @@ public class DimensionsExampleAddonMain extends DimensionsAddon implements Liste
   // private Plugin pl;
 
   public DimensionsExampleAddonMain() {
-    super("ExampleAddon", "0.0.1", "An example addon", DimensionsAddonPriority.NORMAL);
+    super("ExampleAddon", "4.0.0", "An example addon", DimensionsAddonPriority.NORMAL);
   }
 
   @Override

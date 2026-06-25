@@ -18,7 +18,7 @@ public class DimensionsForceLink extends DimensionsAddon implements Listener {
   public DimensionsForceLink() {
     super(
         "DimensionsForceLink",
-        "3.0.2",
+        "4.0.0",
         "Forcefully link two portals no matter what",
         DimensionsAddonPriority.NORMAL);
   }

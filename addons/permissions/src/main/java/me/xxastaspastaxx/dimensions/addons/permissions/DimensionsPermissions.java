@@ -22,7 +22,7 @@ public class DimensionsPermissions extends DimensionsAddon implements Listener {
   public DimensionsPermissions() {
     super(
         "DimensionsPermissionsAddon",
-        "3.0.2",
+        "4.0.0",
         "Require permissions to use a portal",
         DimensionsAddonPriority.NORMAL);
   }

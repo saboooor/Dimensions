@@ -26,7 +26,7 @@ public class DimensionsBiomes extends DimensionsAddon implements Listener {
   public DimensionsBiomes() {
     super(
         "DimensionsBiomesAddon",
-        "3.0.2",
+        "4.0.0",
         "Disable portals in certain biomes",
         DimensionsAddonPriority.NORMAL);
   }

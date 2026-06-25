@@ -21,7 +21,7 @@ public class DimensionsUnbreakable extends DimensionsAddon implements Listener {
   public DimensionsUnbreakable() {
     super(
         "DimensionsUnbreakableAddon",
-        "3.0.2",
+        "4.0.0",
         "Unbreakable portals",
         DimensionsAddonPriority.NORMAL);
   }

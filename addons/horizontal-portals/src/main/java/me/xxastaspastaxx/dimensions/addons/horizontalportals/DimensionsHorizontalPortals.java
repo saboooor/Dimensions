@@ -36,7 +36,7 @@ public class DimensionsHorizontalPortals extends DimensionsAddon implements List
   public DimensionsHorizontalPortals() {
     super(
         "DimensionsHorizontalPortalsAddon",
-        "3.0.2",
+        "4.0.0",
         "Horizontal portals",
         DimensionsAddonPriority.LOW);
   }

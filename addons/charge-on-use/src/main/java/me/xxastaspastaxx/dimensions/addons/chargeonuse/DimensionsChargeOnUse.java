@@ -27,7 +27,7 @@ public class DimensionsChargeOnUse extends DimensionsAddon implements Listener {
   public DimensionsChargeOnUse() {
     super(
         "DimensionsChargeOnUseAddon",
-        "3.0.4",
+        "4.0.0",
         "Charge players for using a portal",
         DimensionsAddonPriority.NORMAL);
   }

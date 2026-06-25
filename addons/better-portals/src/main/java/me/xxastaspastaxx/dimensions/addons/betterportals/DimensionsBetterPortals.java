@@ -46,7 +46,7 @@ public class DimensionsBetterPortals extends DimensionsAddon implements Listener
   public DimensionsBetterPortals() {
     super(
         "DimensionsBetterPortalsAddon",
-        "3.0.7",
+        "4.0.0",
         "Hook for the better portals plugin",
         DimensionsAddonPriority.NORMAL);
   }

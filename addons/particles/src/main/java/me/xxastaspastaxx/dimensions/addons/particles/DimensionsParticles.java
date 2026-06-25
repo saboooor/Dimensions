@@ -26,7 +26,7 @@ public class DimensionsParticles extends DimensionsAddon implements Listener {
       new HashMap<CompletePortal, ArrayList<ScheduledTask>>();
 
   public DimensionsParticles() {
-    super("DimensionsParticlesAddon", "3.0.4", "Particles!!!", DimensionsAddonPriority.NORMAL);
+    super("DimensionsParticlesAddon", "4.0.0", "Particles!!!", DimensionsAddonPriority.NORMAL);
   }
 
   @Override

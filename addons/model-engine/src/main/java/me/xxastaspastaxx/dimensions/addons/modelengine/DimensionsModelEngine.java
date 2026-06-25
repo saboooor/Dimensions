@@ -44,7 +44,7 @@ public class DimensionsModelEngine extends DimensionsAddon implements Listener {
 
   public DimensionsModelEngine() {
     super(
-        "DimensionsModelEngineAddon", "3.0.1", "Model engine hook", DimensionsAddonPriority.NORMAL);
+        "DimensionsModelEngineAddon", "4.0.0", "Model engine hook", DimensionsAddonPriority.NORMAL);
   }
 
   @Override

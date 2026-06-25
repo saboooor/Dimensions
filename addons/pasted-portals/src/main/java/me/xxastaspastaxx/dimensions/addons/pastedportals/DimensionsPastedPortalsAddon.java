@@ -38,7 +38,7 @@ public class DimensionsPastedPortalsAddon extends DimensionsAddon implements Lis
   public DimensionsPastedPortalsAddon() {
     super(
         "DimensionsPastedPortalsAddon",
-        "3.0.4",
+        "4.0.0",
         "Auto ignite pasted portals",
         DimensionsAddonPriority.NORMAL);
   }

@@ -19,7 +19,7 @@ public class DimensionsMessageOnUse extends DimensionsAddon implements Listener 
   public DimensionsMessageOnUse() {
     super(
         "DimensionsMessageOnUseAddon",
-        "3.0.2",
+        "4.0.0",
         "Send a message when players use portals",
         DimensionsAddonPriority.NORMAL);
   }
