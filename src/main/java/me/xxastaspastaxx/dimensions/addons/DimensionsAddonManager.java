@@ -73,19 +73,19 @@ public class DimensionsAddonManager {
             continue;
           }
         }
+        if (!addon.getVersion().contentEquals(pl.getPluginMeta().getVersion()))
+          DimensionsDebbuger.MEDIUM.print(
+              "Warning: "
+                  + addon.getName()
+                  + " is made for plugin version: "
+                  + addon.getVersion()
+                  + " but the plugin version is: "
+                  + pl.getPluginMeta().getVersion()
+                  + ". This is usually fine, unless there is an update for that addon, some"
+                  + " features may not work as intended.");
         if (addon.onLoad(pl)) {
           DimensionsDebbuger.MEDIUM.print(
               "Loaded addon: " + addon.getName() + " v" + addon.getVersion());
-          if (!addon.getVersion().contentEquals(pl.getPluginMeta().getVersion()))
-            DimensionsDebbuger.MEDIUM.print(
-                "Warning: "
-                    + addon.getName()
-                    + " is made for plugin version: "
-                    + addon.getVersion()
-                    + " but the plugin version is: "
-                    + pl.getPluginMeta().getVersion()
-                    + ". This is usually fine, unless there is an update for that addon, some"
-                    + " features may not work as intended.");
           loadedAddons.add(addon);
         } else {
           DimensionsDebbuger.MEDIUM.print(
