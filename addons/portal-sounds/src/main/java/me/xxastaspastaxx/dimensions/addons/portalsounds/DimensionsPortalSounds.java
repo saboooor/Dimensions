@@ -10,7 +10,7 @@ public class DimensionsPortalSounds extends DimensionsAddon {
   public DimensionsPortalSounds() {
     super(
         "DimensionsPortalSoundsAddon",
-        "4.0.0",
+        "4.0.2",
         "Customize portal sounds",
         DimensionsAddonPriority.NORMAL);
   }
@@ -31,6 +31,9 @@ public class DimensionsPortalSounds extends DimensionsAddon {
     if (ambient != null) {
       setOption(portal, "ambientSound", ambient);
     }
+
+    int ambientFrequency = portalConfig.getInt("Addon.PortalSounds.AmbientFrequency", 80);
+    setOption(portal, "ambientSoundFrequency", ambientFrequency);
 
     String breakSound = portalConfig.getString("Addon.PortalSounds.Break");
     if (breakSound != null) {

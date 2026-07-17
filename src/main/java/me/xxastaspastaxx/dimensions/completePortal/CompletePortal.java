@@ -380,22 +380,29 @@ public class CompletePortal {
               playAmbient = false;
             }
             if (playAmbient) {
-              Location center = getCenter();
-              ambientSoundTask =
-                  DimensionsScheduler.runAtFixedRate(
-                      Dimensions.getInstance(),
-                      center,
-                      () -> {
-                        if (!isActive()) return;
-                        DimensionsUtils.playPortalSound(
-                            center,
-                            ambientSoundOpt,
-                            org.bukkit.Sound.BLOCK_PORTAL_AMBIENT,
-                            1.0f,
-                            1.0f);
-                      },
-                      80,
-                      80);
+              Integer frequencyOpt =
+                  (Integer)
+                      me.xxastaspastaxx.dimensions.addons.DimensionsAddon.getOption(
+                          customPortal, "ambientSoundFrequency");
+              int frequency = frequencyOpt != null ? frequencyOpt : 80;
+              if (frequency > 0) {
+                Location center = getCenter();
+                ambientSoundTask =
+                    DimensionsScheduler.runAtFixedRate(
+                        Dimensions.getInstance(),
+                        center,
+                        () -> {
+                          if (!isActive()) return;
+                          DimensionsUtils.playPortalSound(
+                              center,
+                              ambientSoundOpt,
+                              org.bukkit.Sound.BLOCK_PORTAL_AMBIENT,
+                              1.0f,
+                              0.8f + (float) Math.random() * 0.4f);
+                        },
+                        frequency,
+                        frequency);
+              }
             }
 
             if (getTag("hidePortalInside") != null) return;

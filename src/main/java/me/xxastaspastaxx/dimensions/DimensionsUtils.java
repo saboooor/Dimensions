@@ -1,5 +1,7 @@
 package me.xxastaspastaxx.dimensions;
 
+import com.github.retrooper.packetevents.PacketEvents;
+import com.github.retrooper.packetevents.protocol.player.ClientVersion;
 import io.github.retrooper.packetevents.util.GeyserUtil;
 import io.github.retrooper.packetevents.util.viaversion.ViaVersionUtil;
 import net.kyori.adventure.text.serializer.plain.PlainTextComponentSerializer;
@@ -325,8 +327,16 @@ public class DimensionsUtils {
    * @param p the player to check
    */
   public static boolean playerSupportsSprites(Player p) {
-    return ViaVersionUtil.getProtocolVersion(p) >= 773
-        && !GeyserUtil.isGeyserPlayer(p.getUniqueId());
+    int protocolVersion = -1;
+    if (ViaVersionUtil.getViaVersionAccessor() != null) {
+      protocolVersion = ViaVersionUtil.getProtocolVersion(p);
+    } else {
+      ClientVersion clientVersion = PacketEvents.getAPI().getPlayerManager().getClientVersion(p);
+      if (clientVersion != null) {
+        protocolVersion = clientVersion.getProtocolVersion();
+      }
+    }
+    return protocolVersion >= 773 && !GeyserUtil.isGeyserPlayer(p.getUniqueId());
   }
 
   /**
@@ -354,9 +364,24 @@ public class DimensionsUtils {
       if (!soundStr.trim().isEmpty()) {
         Sound soundEnum = null;
         try {
-          soundEnum = Sound.valueOf(soundStr.toUpperCase());
-        } catch (IllegalArgumentException e) {
-          // Not a valid enum name
+          if (Sound.class.isEnum()) {
+            java.lang.reflect.Method valueOfMethod = Sound.class.getMethod("valueOf", String.class);
+            soundEnum = (Sound) valueOfMethod.invoke(null, soundStr.toUpperCase());
+          } else {
+            NamespacedKey key = NamespacedKey.fromString(soundStr.toLowerCase());
+            if (key != null) {
+              soundEnum = Registry.SOUNDS.get(key);
+            }
+            if (soundEnum == null) {
+              NamespacedKey legacyKey =
+                  NamespacedKey.fromString(soundStr.toLowerCase().replace("_", "."));
+              if (legacyKey != null) {
+                soundEnum = Registry.SOUNDS.get(legacyKey);
+              }
+            }
+          }
+        } catch (Exception e) {
+          // Ignored
         }
         if (soundEnum != null) {
           world.playSound(location, soundEnum, volume, pitch);

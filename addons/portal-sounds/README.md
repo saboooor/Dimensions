@@ -12,7 +12,7 @@ This is an addon for the **Dimensions** plugin that allows server administrators
 
 ## Installation
 
-1. Copy the compiled `PortalSounds-4.0.0.jar` into your Paper/Spigot server's `plugins/Dimensions/addons/` directory.
+1. Copy the compiled `PortalSounds-4.0.2.jar` into your Paper/Spigot server's `plugins/Dimensions/addons/` directory.
 2. Restart or reload the Dimensions plugin.
 
 ## Configuration
@@ -30,6 +30,9 @@ Addon:
     
     # Sound played ambiently around active portal blocks
     Ambient: "block.portal.ambient"
+
+    # How often the ambient sound plays in ticks (20 ticks = 1 second)
+    AmbientFrequency: 80
     
     # Sound played when the portal frame or inside blocks are broken
     Break: "block.portal.trigger"

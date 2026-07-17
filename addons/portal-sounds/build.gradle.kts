@@ -16,5 +16,5 @@ dependencies {
 }
 
 tasks.jar {
-    archiveFileName.set("PortalSounds-4.0.0.jar")
+    archiveFileName.set("PortalSounds-4.0.2.jar")
 }

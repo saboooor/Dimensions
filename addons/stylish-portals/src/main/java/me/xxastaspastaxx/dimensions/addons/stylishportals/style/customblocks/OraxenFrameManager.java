@@ -26,7 +26,6 @@ public class OraxenFrameManager extends FrameManager {
 
     if (block.getType() != Material.NOTE_BLOCK) return false;
     final NoteBlock noteBlok = (NoteBlock) block.getBlockData();
-    @SuppressWarnings("deprecation")
     final NoteBlockMechanic noteBlockMechanic =
         NoteBlockMechanicFactory.getBlockMechanic(
             (int) (noteBlok.getInstrument().getType()) * 25
