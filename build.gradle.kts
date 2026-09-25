@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.xxastaspastaxx"
-version = "4.0.2"
+version = "4.0.3"
 
 java {
     toolchain {
@@ -115,7 +115,27 @@ val collectAddons = tasks.register<Copy>("collectAddons") {
     include("*.jar")
 }
 
+val demoAddonProjects = setOf("worldguard-flags", "patreoncosmetics", "horizontal-portals", "force-link")
+
+val collectDemoAddons = tasks.register<Copy>("collectDemoAddons") {
+    group = "build"
+    description = "Collects demo addon jar files into the bundle-demo/addons directory"
+
+    val demoSubprojects = subprojects.filter { it.name in demoAddonProjects }
+
+    demoSubprojects.forEach { subproject ->
+        dependsOn(subproject.tasks.matching { it.name == "jar" })
+    }
+
+    from(demoSubprojects.map { subproject ->
+        subproject.layout.buildDirectory.dir("libs")
+    })
+
+    into(layout.settingsDirectory.dir("bundle-demo/addons"))
+    include("*.jar")
+}
+
 tasks.assemble {
-    dependsOn(collectAddons)
+    dependsOn(collectAddons, collectDemoAddons)
 }
 

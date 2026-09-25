@@ -43,3 +43,5 @@ target/
 
 bundle/**/*.jar
 bundle/**/*.zip
+bundle-demo/**/*.jar
+bundle-demo/**/*.zip
